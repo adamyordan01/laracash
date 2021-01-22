@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -31,8 +31,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/test', function () {
         return view('test');
     });
+
+    Route::get('/me', MeController::class)->name('me');
+
+    Route::get('/cash', [CashController::class, 'index']);
+    Route::get('/cash/create', [CashController::class, 'create']);
+    Route::post('/cash/store', [CashController::class, 'store']);
 });
 
-Route::get('/cash/create', [CashController::class, 'create']);
-
-Route::get('/me', MeController::class);

@@ -9,5 +9,7 @@ class Cash extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'amount', 'when'];
+    protected $fillable = ['name', 'slug', 'description', 'amount', 'when'];
+
+    protected $dates = ['when', 'created_at', 'updated_at'];
 }
