@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'picture',
     ];
 
     /**
@@ -44,5 +45,10 @@ class User extends Authenticatable
     public function cashes()
     {
         return $this->hasMany(Cash::class);
+    }
+
+    public function getTakePictureAttribute()
+    {
+        return "storage/images/profile/" . $this->picture;
     }
 }

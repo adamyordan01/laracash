@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 // use App\Models\Cash;
+
+use App\Models\Cash;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,5 +43,16 @@ class CashController extends Controller
         ]);
 
         return redirect()->route('me')->with('status', 'Transaction has been added.');
+    }
+
+    public function show(Cash $cash)
+    {
+        // this is policy
+        // 'cash' diambil dari method policynya dan $cash inheritance dari model yang digunakan
+        $this->authorize('cash', $cash);
+
+        return view('cash.show', [
+            'cash' => $cash,
+        ]);
     }
 }

@@ -7,8 +7,8 @@
             <div class="toast fade show float-right ml-auto" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="100" data-bs-autohide="false">
                 <div class="toast-header text-primary">
                     <span class="fab fa-bootstrap"></span>
-                    <strong class="mr-auto ml-2">Laracash</strong>
-                    <small class="text-muted">11 mins ago</small>
+                    <strong class="mr-auto ml-2">Laracash say:</strong>
+                    {{-- <small class="text-muted">{{ $transactions->created_at->diffForHumans() }}</small> --}}
                     {{-- <button type="button" class="btn-close ml-2 close" data-dismiss="toast" aria-label="Close"></button> --}}
                     {{-- <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
                         <span aria-hidden="true">×</span>
@@ -81,7 +81,7 @@
                     </div>
                     <div class="card-body vh-100 overflow-auto">
                         @foreach ($transactions as $transaction)
-                            <a href="" class="d-flex justify-content-between align-items-center list-group-item-action py-2 px-2 rounded mb-3">
+                            <a href="/cash/show/{{ $transaction->slug }}" class="d-flex justify-content-between align-items-center list-group-item-action py-2 px-2 rounded mb-3">
                                 <span class="d-flex flex-column">
                                     <small class="text-muted">
                                         {{ $transaction->when->format("d F Y - H:i") }}
@@ -95,83 +95,6 @@
                                 </span>
                             </a>
                         @endforeach
-                        {{-- <a href="" class="d-flex justify-content-between align-items-center list-group-item-action py-2 px-2 rounded mb-3">
-                            <span class="d-flex flex-column">
-                                <small class="text-muted">22 Januari 2021</small>
-                                <span>Beli SmartPhone Samsung Galaxy A20</span>
-                            </span>
-                            <span class="text-danger">Rp. 2.200.000</span>
-                        </a>
-                        <a href="" class="d-flex justify-content-between align-items-center list-group-item-action py-2 px-2 rounded mb-3">
-                            <span class="d-flex flex-column">
-                                <small class="text-muted">02 Januari 2021</small>
-                                <span>Gajian Bulanan</span>
-                            </span>
-                            <span class="text-success">Rp. 4.000.000</span>
-                        </a>
-                        <a href="" class="d-flex justify-content-between align-items-center list-group-item-action py-2 px-2 rounded mb-3">
-                            <span class="d-flex flex-column">
-                                <small class="text-muted">22 Januari 2021</small>
-                                <span>Beli SmartPhone Samsung Galaxy A20</span>
-                            </span>
-                            <span class="text-danger">Rp. 2.200.000</span>
-                        </a>
-                        <a href="" class="d-flex justify-content-between align-items-center list-group-item-action py-2 px-2 rounded mb-3">
-                            <span class="d-flex flex-column">
-                                <small class="text-muted">02 Januari 2021</small>
-                                <span>Gajian Bulanan</span>
-                            </span>
-                            <span class="text-success">Rp. 4.000.000</span>
-                        </a>
-                        <a href="" class="d-flex justify-content-between align-items-center list-group-item-action py-2 px-2 rounded mb-3">
-                            <span class="d-flex flex-column">
-                                <small class="text-muted">22 Januari 2021</small>
-                                <span>Beli SmartPhone Samsung Galaxy A20</span>
-                            </span>
-                            <span class="text-danger">Rp. 2.200.000</span>
-                        </a>
-                        <a href="" class="d-flex justify-content-between align-items-center list-group-item-action py-2 px-2 rounded mb-3">
-                            <span class="d-flex flex-column">
-                                <small class="text-muted">02 Januari 2021</small>
-                                <span>Gajian Bulanan</span>
-                            </span>
-                            <span class="text-success">Rp. 4.000.000</span>
-                        </a>
-                        <a href="" class="d-flex justify-content-between align-items-center list-group-item-action py-2 px-2 rounded mb-3">
-                            <span class="d-flex flex-column">
-                                <small class="text-muted">22 Januari 2021</small>
-                                <span>Beli SmartPhone Samsung Galaxy A20</span>
-                            </span>
-                            <span class="text-danger">Rp. 2.200.000</span>
-                        </a>
-                        <a href="" class="d-flex justify-content-between align-items-center list-group-item-action py-2 px-2 rounded mb-3">
-                            <span class="d-flex flex-column">
-                                <small class="text-muted">02 Januari 2021</small>
-                                <span>Gajian Bulanan</span>
-                            </span>
-                            <span class="text-success">Rp. 4.000.000</span>
-                        </a>
-                        <a href="" class="d-flex justify-content-between align-items-center list-group-item-action py-2 px-2 rounded mb-3">
-                            <span class="d-flex flex-column">
-                                <small class="text-muted">22 Januari 2021</small>
-                                <span>Beli SmartPhone Samsung Galaxy A20</span>
-                            </span>
-                            <span class="text-danger">Rp. 2.200.000</span>
-                        </a>
-                        <a href="" class="d-flex justify-content-between align-items-center list-group-item-action py-2 px-2 rounded mb-3">
-                            <span class="d-flex flex-column">
-                                <small class="text-muted">02 Januari 2021</small>
-                                <span>Gajian Bulanan</span>
-                            </span>
-                            <span class="text-success">Rp. 4.000.000</span>
-                        </a>
-                        <a href="" class="d-flex justify-content-between align-items-center list-group-item-action py-2 px-2 rounded mb-3">
-                            <span class="d-flex flex-column">
-                                <small class="text-muted">22 Januari 2021</small>
-                                <span>Beli SmartPhone Samsung Galaxy A20</span>
-                            </span>
-                            <span class="text-danger">Rp. 2.200.000</span>
-                        </a> --}}
                     </div>
                 </div>
             </div>

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\CashController;
 use App\Http\Controllers\MeController;
+use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\ProfileController;
 use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -32,10 +34,20 @@ Route::middleware('auth')->group(function () {
         return view('test');
     });
 
+    Route::get('/password/edit', [PasswordController::class, 'edit']);
+    Route::patch('/password/update', [PasswordController::class, 'update']);
+
     Route::get('/me', MeController::class)->name('me');
 
-    Route::get('/cash', [CashController::class, 'index']);
-    Route::get('/cash/create', [CashController::class, 'create']);
-    Route::post('/cash/store', [CashController::class, 'store']);
+    Route::prefix('cash')->group(function () {
+        Route::get('', [CashController::class, 'index']);
+        Route::get('create', [CashController::class, 'create']);
+        Route::post('store', [CashController::class, 'store']);
+        Route::get('show/{cash:slug}', [CashController::class, 'show']);
+    });
+    
+    Route::get('/profile/show/{user:id}', [ProfileController::class, 'show']);
+    Route::get('/profile/edit/{user:id}', [ProfileController::class, 'edit']);
+    Route::patch('/profile/update/{user:id}', [ProfileController::class, 'update']);
 });
 

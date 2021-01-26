@@ -6,7 +6,12 @@
             <div class="col-md-6 mb-4">
                 <div class="card border-light shadow-sm components-section">
                     <div class="card-header">
-                        <h6>Add Transaction</h6>
+                        <div class="d-flex justify-content-between">
+                            <a href="/me" class="btn-link">
+                                <i class="fas fa-angle-double-left"></i> Back
+                            </a>
+                            <h6>Add Transaction</h6>
+                        </div>
                     </div>
                     <div class="card-body">     
                         <form action="/cash/store" method="POST">
